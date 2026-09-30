@@ -1,0 +1,28 @@
+Question 1
+
+It is a mechanism that manages asynchronous operations and callbacks, and sends the ready callbacks to the Main Thread to be executed.
+
+Question 2
+
+Libuv is a library used by Node.js to handle asynchronous operations and manage the Event Loop. It checks for completed async operations and moves their callbacks to the Main Thread for execution
+
+Question 3
+
+Node.js handles async operations without blocking the main thread. It sends the task to the OS or Thread Pool to handle it in the background. When the task is finished, the Event Loop puts the callback back in the Call Stack so Node.js can execute it.
+
+Question 4
+
+The Call Stack is where JavaScript code is executed. The Event Queue is where callbacks wait after an asynchronous operation is completed. The Event Loop checks whether the Call Stack is empty and, when it is, moves the callbacks from the Event Queue to the Call Stack to be executed.
+
+Question 5
+
+The Thread Pool is a group of worker threads used by Node.js through libuv to handle certain asynchronous tasks in the background, so they don’t block the Main Thread.
+We use it by making this for  example  process.env.UV_THREADPOOL_SIZE=8
+
+
+Question 6
+
+Node.js handles non-blocking operations by starting them and continuing to execute other code without waiting for them to finish. Once the operation is completed, its callback is handled by the Event Loop. But in blocking operations make Node.js wait until the operation finishes, which blocks the Main Thread from executing other JavaScript code.
+
+
+
